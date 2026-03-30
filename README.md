@@ -9,9 +9,21 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
+~~~
+#include <stdio.h>
+#include <math.h>
+int main() {
+    float num = 23.65;
+    float *ptr = &num;
+    *ptr = ceil(*ptr);
+    printf("Rounded number: %.1f\n", *ptr+1);
+    return 0;
+}
 
+~~~
 ## OUTPUT:
  	
+<img width="1918" height="1141" alt="image" src="https://github.com/user-attachments/assets/723f8cd6-1932-4802-bc6a-4beaa27d1964" />
 
 
 
@@ -45,7 +57,26 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+~~~
+#include <stdio.h>
+unsigned long long product(int n) {
+    if(n == 1)
+        return 1;
+    else
+        return n * product(n - 1);
+}
+int main() {
+    int n = 12;
+    unsigned long long result;
+    result = product(n);
+    printf("Product of first %d natural numbers = %llu\n", n, result);
+    return 0;
+}
+
+~~~
 ## OUTPUT:
+<img width="1918" height="1142" alt="image" src="https://github.com/user-attachments/assets/618be3be-b0d1-42a0-a992-c579f60220b5" />
+
          		
 ## RESULT:
 
@@ -68,11 +99,34 @@ Write C Program to find Sum of each row of a Matrix
 4.	Print the sum for each row.
 
 ## PROGRAM:
+~~~
+#include <stdio.h>
+int main() {
+    int rows, cols, i, j;
+    scanf("%d", &rows);
+    scanf("%d", &cols);
+    int matrix[rows][cols];
+    for(i = 0; i < rows; i++) {
+        for(j = 0; j < cols; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    for(i = 0; i < rows; i++) {
+        int sum = 0;
+        for(j = 0; j < cols; j++) {
+            sum += matrix[i][j];
+        }
+        printf("Sum of row %d = %d\n", i + 1, sum);
+    }
+    return 0;
+}
 
+~~~
 
 
 ## OUTPUT
 
+<img width="1918" height="1141" alt="image" src="https://github.com/user-attachments/assets/97eafd5b-1eb0-4b74-8eb5-f63552e8b896" />
 
  
  
@@ -96,9 +150,34 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
+~~~
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100];
+    int num_rows, len, i, j, k;
+    scanf("%s", str);
+    scanf("%d", &num_rows);
+    len = strlen(str);
+    for(i = 1; i <= num_rows; i++) {
+        int midpoint = (2 * num_rows - 1) / 2;
+        for(j = 0; j < (2 * num_rows - 1); j++) {
+            if(j >= midpoint - (i - 1) && j <= midpoint + (i - 1)) {
+                k = (j - (midpoint - (i - 1))) % len;
+                printf("%c", str[k]);
+            } else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+    return 0;
+}
 
+~~~
 
  ## OUTPUT
+<img width="1918" height="1138" alt="image" src="https://github.com/user-attachments/assets/79c8e355-e303-48a9-a06b-5f3e68374807" />
 
  
 
@@ -132,8 +211,28 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
+~~~
+#include <stdio.h>
+int main() {
+    int arr[10];
+    int *parr = arr;
+    int n = 6, i;
+    printf("Enter %d elements:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", parr + i);
+    }
+    printf("The elements of the array are:\n");
+    for(i = 0; i < n; i++) {
+        printf("%d ", *(parr + i));
+    }
+    printf("\n");
+    return 0;
+}
+
+~~~
 
 ## OUTPUT
+<img width="1918" height="1137" alt="image" src="https://github.com/user-attachments/assets/7d09c6f9-2814-4ef6-bccc-8d3685a13851" />
 
  
 
